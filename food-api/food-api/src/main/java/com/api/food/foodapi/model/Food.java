@@ -20,6 +20,7 @@ public class Food {
     private String id;
     private String nome;
     private Categoria categoria;
+    private String descricao;
     private int calorias;
     private double preco;
 
