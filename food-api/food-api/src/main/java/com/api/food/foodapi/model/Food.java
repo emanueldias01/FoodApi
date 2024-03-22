@@ -27,6 +27,7 @@ public class Food {
     public Food(FoodRequestDTO data) {
         this.nome = data.nome();
         this.categoria = data.categoria();
+        this.descricao = data.descricao();
         this.calorias = data.calorias();
         this.preco = data.preco();
     }
