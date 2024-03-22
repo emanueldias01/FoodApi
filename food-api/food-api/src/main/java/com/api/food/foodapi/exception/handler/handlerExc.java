@@ -1,5 +1,6 @@
 package com.api.food.foodapi.exception.handler;
 
+import com.api.food.foodapi.exception.CamposIncompletosException;
 import com.api.food.foodapi.exception.CamposNulosException;
 import com.api.food.foodapi.exception.dto.ErrorDTO;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,17 @@ public class handlerExc {
     @ResponseBody
     @ResponseStatus(HttpStatus.PRECONDITION_FAILED)
     public ErrorDTO trataErroCamposNulos(CamposNulosException ex){
+        return new ErrorDTO(
+                ex.getMessage(),
+                ex.getLancamento()
+
+        );
+    }
+
+    @ExceptionHandler
+    @ResponseBody
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorDTO trataValidacaoCampos(CamposIncompletosException ex){
         return new ErrorDTO(
                 ex.getMessage(),
                 ex.getLancamento()
