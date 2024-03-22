@@ -25,7 +25,6 @@ public class FoodService {
     public void verificaCamposNulos(@RequestBody FoodRequestDTO data){
         if(data.nome() == null || data.categoria() == null || data.calorias() == 0 || data.descricao() == null || data.preco() == 0){
             throw new CamposNulosException("Campos nulos");
-
         }
 
     }
@@ -65,6 +64,11 @@ public class FoodService {
     public ResponseEntity serviceDeleteFood(@PathVariable String id){
         repository.deleteById(id);
         return ResponseEntity.noContent().build();
+
+    }
+
+    public ResponseEntity serviceGetById(@PathVariable String id){
+        return ResponseEntity.ok(repository.findById(id));
 
     }
 }

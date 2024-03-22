@@ -44,4 +44,12 @@ public class FoodController {
 
     }
 
+
+
+    //GETS ESPECIFICOS
+    @GetMapping("/{id}")
+    public ResponseEntity getById(@PathVariable String id){
+        return service.serviceGetById(id);
+
+    }
 }
