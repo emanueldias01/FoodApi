@@ -2,6 +2,7 @@ package com.api.food.foodapi.controller;
 
 import com.api.food.foodapi.dto.FoodRequestDTO;
 import com.api.food.foodapi.dto.FoodUpdateDTO;
+import com.api.food.foodapi.model.Categoria;
 import com.api.food.foodapi.service.FoodService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,12 @@ public class FoodController {
     @GetMapping("/name/{nome}")
     public ResponseEntity getByNome(@PathVariable String nome){
         return service.serviceGetByNome(nome);
+
+    }
+
+    @GetMapping("/category/{categoria}")
+    public ResponseEntity listCategory(@PathVariable Categoria categoria){
+        return service.serviceListCategory(categoria);
 
     }
 }

@@ -5,6 +5,7 @@ import com.api.food.foodapi.dto.FoodResponseDTO;
 import com.api.food.foodapi.dto.FoodUpdateDTO;
 import com.api.food.foodapi.exception.CamposIncompletosException;
 import com.api.food.foodapi.exception.CamposNulosException;
+import com.api.food.foodapi.model.Categoria;
 import com.api.food.foodapi.model.Food;
 import com.api.food.foodapi.repository.FoodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,6 +76,12 @@ public class FoodService {
 
     public ResponseEntity serviceGetByNome(@PathVariable String nome){
         return ResponseEntity.ok(repository.findByNome(nome));
+
+    }
+
+    public ResponseEntity serviceListCategory(@PathVariable Categoria categoria){
+        List<Food> list = repository.findByCategoria(categoria);
+        return ResponseEntity.ok(list);
 
     }
 }
