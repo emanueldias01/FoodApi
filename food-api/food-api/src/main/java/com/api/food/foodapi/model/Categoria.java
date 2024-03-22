@@ -6,5 +6,7 @@ public enum Categoria {
     FITNESS,
     JAPONESA,
     CHURRASCO,
+
+    BEBIDAS,
     MASSAS;
 }
