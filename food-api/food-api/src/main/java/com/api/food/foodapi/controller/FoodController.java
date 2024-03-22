@@ -4,7 +4,6 @@ import com.api.food.foodapi.dto.FoodRequestDTO;
 import com.api.food.foodapi.dto.FoodUpdateDTO;
 import com.api.food.foodapi.service.FoodService;
 import jakarta.transaction.Transactional;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -48,9 +47,15 @@ public class FoodController {
 
 
     //GETS ESPECIFICOS
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity getById(@PathVariable String id){
         return service.serviceGetById(id);
+
+    }
+
+    @GetMapping("/name/{nome}")
+    public ResponseEntity getByNome(@PathVariable String nome){
+        return service.serviceGetByNome(nome);
 
     }
 }

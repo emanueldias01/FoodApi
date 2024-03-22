@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
@@ -69,6 +70,11 @@ public class FoodService {
 
     public ResponseEntity serviceGetById(@PathVariable String id){
         return ResponseEntity.ok(repository.findById(id));
+
+    }
+
+    public ResponseEntity serviceGetByNome(@PathVariable String nome){
+        return ResponseEntity.ok(repository.findByNome(nome));
 
     }
 }
