@@ -71,7 +71,6 @@ public class FoodService {
     }
 
     public ResponseEntity serviceGetById(@PathVariable String id){
-         var resposta = ResponseEntity.ok(repository.findById(id));
 
         return repository.findById(id)
                 .map(ResponseEntity::ok)
