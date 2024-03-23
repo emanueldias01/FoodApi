@@ -5,6 +5,7 @@ import com.api.food.foodapi.dto.FoodResponseDTO;
 import com.api.food.foodapi.dto.FoodUpdateDTO;
 import com.api.food.foodapi.exception.CamposIncompletosException;
 import com.api.food.foodapi.exception.CamposNulosException;
+import com.api.food.foodapi.exception.NotFoundException;
 import com.api.food.foodapi.model.Categoria;
 import com.api.food.foodapi.model.Food;
 import com.api.food.foodapi.repository.FoodRepository;
@@ -70,8 +71,11 @@ public class FoodService {
     }
 
     public ResponseEntity serviceGetById(@PathVariable String id){
-        return ResponseEntity.ok(repository.findById(id));
+         var resposta = ResponseEntity.ok(repository.findById(id));
 
+        return repository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElseThrow(() -> new NotFoundException("item não encontrado"));
     }
 
     public ResponseEntity serviceGetByNome(@PathVariable String nome){
