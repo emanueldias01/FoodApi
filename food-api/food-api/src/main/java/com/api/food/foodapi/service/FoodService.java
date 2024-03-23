@@ -78,7 +78,9 @@ public class FoodService {
     }
 
     public ResponseEntity serviceGetByNome(@PathVariable String nome){
-        return ResponseEntity.ok(repository.findByNome(nome));
+        return repository.findById(nome)
+                .map(ResponseEntity::ok)
+                .orElseThrow(() -> new NotFoundException("item não encontrado"));
 
     }
 
