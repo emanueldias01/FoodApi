@@ -71,16 +71,27 @@ public class FoodService {
     }
 
     public ResponseEntity serviceGetById(@PathVariable String id){
+        if(repository.findById(id) != null){
+            return ResponseEntity.ok(repository.findById(id));
 
-        return repository.findById(id)
-                .map(ResponseEntity::ok)
-                .orElseThrow(() -> new NotFoundException("item não encontrado"));
+        }
+        else{
+            throw new NotFoundException("O item pesquisado não foi encontrado");
+
+        }
+
     }
 
     public ResponseEntity serviceGetByNome(@PathVariable String nome){
-        return repository.findById(nome)
-                .map(ResponseEntity::ok)
-                .orElseThrow(() -> new NotFoundException("item não encontrado"));
+        if(repository.findByNome(nome) != null){
+            return ResponseEntity.ok(repository.findByNome(nome));
+
+        }
+        else{
+            throw new NotFoundException("O item pesquisado não foi encontrado");
+
+        }
+
 
     }
 
