@@ -37,7 +37,12 @@ class FoodService{
     }
 
     static async deleta(id){
-        await FoodRepository.deleta(id)
+        try{
+            await FoodRepository.deleta(id)
+        }catch(error){
+            throw new Error("Nao foi possivel deletar a comida com esse id")
+        }
+        
     }
 }
 export default FoodService

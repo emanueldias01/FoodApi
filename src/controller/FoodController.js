@@ -45,10 +45,20 @@ class FoodController{
     }
 
     static async deleta(req, res){
-        const id = req.params.id
-        await FoodService.deleta(id)
+        try{
+            const id = Number(req.params.id)
+            if(isNaN(id)){
+                res.status(400).json({mensagem : "ID inválido"})
 
-        res.status(204).send()
+            }
+            await FoodService.deleta(id)
+            res.status(204).send()
+        }catch(error){
+            res.status(400).json({mensagem : `erro: ${error}`})
+        }
+        
+
+        
     }
 }
 export default FoodController

@@ -1,4 +1,4 @@
-import { PrismaClient } from "../../generated/prisma";
+import { PrismaClient } from "../../generated/prisma/index.js";
 import Food from "../model/Food.js";
 
 const prisma = new PrismaClient()
@@ -25,7 +25,7 @@ class FoodRepository{
 
     static async buscaPorId(idSearch){
         const find = await prisma.food.findUnique({
-            where: { id }
+            where: { id : idSearch }
         });
         
         if(!find) return null
