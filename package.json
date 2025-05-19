@@ -3,6 +3,26 @@
     "prisma": "^6.8.2"
   },
   "dependencies": {
-    "@prisma/client": "^6.8.2"
-  }
+    "@prisma/client": "^6.8.2",
+    "express": "^5.1.0"
+  },
+  "name": "foodapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emanueldias01/FoodApi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emanueldias01/FoodApi/issues"
+  },
+  "homepage": "https://github.com/emanueldias01/FoodApi#readme"
 }
