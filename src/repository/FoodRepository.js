@@ -28,6 +28,8 @@ class FoodRepository{
             where: { id }
         });
         
+        if(!find) return null
+
         return new Food(find.id, find.nome, find.descricao, find.preco, find.disponivel)
     }
 
@@ -53,3 +55,5 @@ class FoodRepository{
         })
     }
 }
+
+export default FoodRepository
