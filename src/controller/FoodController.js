@@ -44,6 +44,28 @@ class FoodController{
         }
     }
 
+    static async deixaDisponivel(req, res){
+        const id = Number(req.params.id)
+        if(isNaN(id)){
+            res.status(400).json({ mensagem: 'ID inválido' })
+            return
+        }
+
+        const food = await FoodService.deixaDisponivel(id)
+        res.status(200).json(food)
+    }
+
+    static async deixaIndisponivel(req, res){
+        const id = Number(req.params.id)
+        if(isNaN(id)){
+            res.status(400).json({ mensagem: 'ID inválido' })
+            return
+        }
+
+        const food = await FoodService.deixaIndisponivel(id)
+        res.status(200).json(food)
+    }
+
     static async deleta(req, res){
         try{
             const id = Number(req.params.id)

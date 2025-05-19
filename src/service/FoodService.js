@@ -36,6 +36,25 @@ class FoodService{
         }
     }
 
+    static async deixaDisponivel(id){
+        const request = {
+            id : id,
+            disponivel : true
+        }
+        const food = await FoodRepository.edita(request)
+        return food
+        
+    }
+    static async deixaIndisponivel(id){
+        const request = {
+            id : id,
+            disponivel : false
+        }
+        const food = await FoodRepository.edita(request)
+        return food
+        
+    }
+
     static async deleta(id){
         try{
             await FoodRepository.deleta(id)
