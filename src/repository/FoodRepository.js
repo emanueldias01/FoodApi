@@ -1,5 +1,5 @@
 import { PrismaClient } from "../../generated/prisma";
-import Food from "../model/Food";
+import Food from "../model/Food.js";
 
 const prisma = new PrismaClient()
 

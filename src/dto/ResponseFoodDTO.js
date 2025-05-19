@@ -1,4 +1,4 @@
-class ResponseFoodDTO{
+class RequestFoodDTO{
     constructor(nome, descricao, preco){
         this.nome = nome,
         this.descricao = descricao,
@@ -6,4 +6,4 @@ class ResponseFoodDTO{
     }
 }
 
-export default ResponseFoodDTO
+export default RequestFoodDTO

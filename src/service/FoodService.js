@@ -1,4 +1,4 @@
-import FoodRepository from "../repository/FoodRepository"
+import FoodRepository from "../repository/FoodRepository.js"
 
 class FoodService{
 
